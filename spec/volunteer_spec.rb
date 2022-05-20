@@ -56,15 +56,15 @@ describe 'Volunteer' do
   end
   describe('.find_by_project')do
     it("finds volunteers for a specific project")do
-      project = Project.new({:name=>"Teach kids Ruby",:id=> nil})
+      project = Project.new({:title=>"Teach kids Ruby",:id=> nil})
       project.save()
-      project2 = Project.new({:name=>"Teach grandparents Python",:id=> nil})
+      project2 = Project.new({:title=>"Teach grandparents Python",:id=> nil})
       project2.save()
       volunteer= Volunteer.new({:name=>"Jane",:project_id=> project2.id, :id=>nil})
       volunteer.save()
-      volunteer2 =Volunteer.new({:name=>"Billy",:project_id=> project.id, :id=> nil})
+      volunteer2 =Volunteer.new({:name=>"Billy",:project_id=> project2.id, :id=> nil})
       volunteer2.save()
-      expect(Volunteer.find_by_project(project2.id)).to eq([volunteer])
+      expect(Volunteer.find_by_project(project2.id)).to eq([volunteer, volunteer2])
     end
   end
 

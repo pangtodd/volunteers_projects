@@ -73,7 +73,7 @@ describe 'Volunteer' do
     it("updates a volunteer by id")do
       project= Project.new({:title=>"teaching robots biology", :id=>nil})
       project.save()
-      volunteer= Volunteer.new({:name=>"Linux",:album_id => project.id,:id => nil})
+      volunteer= Volunteer.new({:name=>"Linux",:project_id => project.id,:id => nil})
       volunteer.save()
       volunteer.update("Linus", project.id)
       expect(volunteer.name).to eq("Linus")

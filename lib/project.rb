@@ -29,9 +29,13 @@ class Project
 
   def self.find(id)
     project = DB.exec("SELECT * FROM projects WHERE id= #{id};").first
-    title= project.fetch("title")
-    id= project.fetch("id").to_i
-    Project.new({:title=>title, :id=>id})
+    if project
+      title= project.fetch("title")
+      id= project.fetch("id").to_i
+      Project.new({:title=>title, :id=>id})
+    else
+      nil
+    end
   end
 
   def update(title)
@@ -42,5 +46,10 @@ class Project
   def delete
     DB.exec("DELETE FROM projects WHERE id = #{@id};")
   end
+
+  def volunteers
+    Volunteer.find_by_project(self.id)
+  end
+
 
 end

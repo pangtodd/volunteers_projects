@@ -66,6 +66,21 @@ describe 'the volunteer creation path', {:type => :feature} do
   end
 end
 
+describe 'the volunteer update path', {:type => :feature} do
+  it 'allows a user to update a volunteer' do
+    test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
+    test_project.save
+    volunteer = Volunteer.new({:name => 'Pete', :project_id=>test_project.id.to_i(), :id=> nil})
+    volunteer.save
+    visit '/'
+    click_link('shortcut to volunteers')
+    click_link('Pete')
+    fill_in('name', :with=> 'Skinny Pete')
+    click_button('update volunteer')
+    expect(page).not_to have_content('Skinny Pete')
+  end
+end
+
 describe 'the volunteer delete path', {:type => :feature} do
   it 'allows a user to delete a volunteer' do
     test_project = Project.new({:title => 'Teaching Kids to Code', :id => nil})

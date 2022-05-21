@@ -2,7 +2,7 @@
 
 #### By Todd Pangilinan
 
-Project creating application which will track projects and volunteers.
+An application which tracks projects and volunteers.
 
 ## Technologies used:
 
@@ -17,7 +17,12 @@ Project creating application which will track projects and volunteers.
 
 
 ## Description:
-Using Sinatra and Postgres, this Ruby-based application allows a user to manage volunteers and projects. are able to be updated, deleted, and read, demonstrating full CRUD capabilities.
+Using Sinatra and Postgres, this Ruby-based application allows a user to manage volunteers and projects. Both projects and volunteers are able to be updated, deleted, and read, demonstrating full CRUD capabilities. In designing this application, the following user stories were addressed:
+
+* As a non-profit employee, I want to view, add, update and delete projects.
+* As a non-profit employee, I want to view and add volunteers.
+* As a non-profit employee, I want to add volunteers to a project.
+
 
 ## Setup/Installation Requirements
 

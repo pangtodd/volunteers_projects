@@ -77,7 +77,7 @@ describe 'the volunteer update path', {:type => :feature} do
     click_link('Pete')
     fill_in('name', :with=> 'Skinny Pete')
     click_button('update volunteer')
-    expect(page).not_to have_content('Skinny Pete')
+    expect(page).to have_content('Skinny Pete')
   end
 end
 

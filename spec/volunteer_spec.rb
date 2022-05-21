@@ -84,7 +84,7 @@ describe 'Volunteer' do
       project= Project.new({:title=>"teaching robots biology", :id=>nil})
       project.save()
       volunteer= Volunteer.new({:name=>"Lazy Larry",:project_id=> project.id,:id=> nil})
-      song.save()
+      volunteer.save()
       volunteer2 = Volunteer.new({:name=>"Hard Working Hariette", :project_id=> project.id,:id=> nil})
       volunteer2.save()
       volunteer.delete()

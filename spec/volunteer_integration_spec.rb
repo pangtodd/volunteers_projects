@@ -61,6 +61,7 @@ describe 'the volunteer creation path', {:type => :feature} do
     project_id = test_project.id.to_i
     visit "/projects/#{project_id}"
     fill_in('volunteer_name', :with => 'Skinny Pete')
+    click_button('add volunteer.')
     expect(page).to have_content('Skinny Pete')
   end
 end

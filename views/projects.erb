@@ -1,11 +1,11 @@
-<h1>Volunteer/Project tracker</h1>
+<h1>Project tracker</h1>
 
 <h3>open projects</h3>
 
 <% if @projects.any? %>
   <ul>
     <% @projects.each do |project| %>
-      <li><%= project.name %></li>
+      <li><a href="/projects/<%= project.id%>"><%= project.title%></a></li>
     <% end %>
   </ul>
 <% else %>

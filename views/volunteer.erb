@@ -10,11 +10,11 @@
   <button type="submit">update volunteer</button>
 </form>
 
-<form action="/volunteers/<%= @volunteer.project.id %>/volunteers/<%= @volunteer.id %>" method="post">
+<form action="/projects/<%= @volunteer.project.id %>/volunteers/<%= @volunteer.id %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
   <button type ="submit">Delete volunteer</button>
 </form>
 <br>
-<form action="/projects/<%= @song.project.id %>" method="get">
-<button type="submit">BACK TO <%= @song.project.name %></button>
+<form action="/projects/<%= @volunteer.project.id %>" method="get">
+<button type="submit">BACK TO <%= @volunteer.project.title %></button>

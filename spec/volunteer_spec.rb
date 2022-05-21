@@ -69,7 +69,7 @@ describe 'Volunteer' do
     end
   end
 
-  describe('#update')do
+  describe '#update' do
     it("updates a volunteer by id")do
       project= Project.new({:title=>"teaching robots biology", :id=>nil})
       project.save()
@@ -77,6 +77,18 @@ describe 'Volunteer' do
       volunteer.save()
       volunteer.update("Linus", project.id)
       expect(volunteer.name).to eq("Linus")
+    end
+  end
+  describe'delete'do
+    it("delete volunteers from the database.")do
+      project= Project.new({:title=>"teaching robots biology", :id=>nil})
+      project.save()
+      volunteer= Volunteer.new({:name=>"Lazy Larry",:project_id=> project.id,:id=> nil})
+      song.save()
+      volunteer2 = Volunteer.new({:name=>"Hard Working Hariette", :project_id=> project.id,:id=> nil})
+      volunteer2.save()
+      volunteer.delete()
+      expect(Volunteer.all).to eq([volunteer2])
     end
   end
 end

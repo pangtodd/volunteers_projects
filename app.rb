@@ -21,10 +21,14 @@ end
 
 post('/projects') do
   name = params[:project_title]
-  project = Project.new({:title=>name, :id =>nil})
-  project.save()
-  @projects = Project.all()
-  erb(:projects)
+  if name.length()>0
+    project = Project.new({:title=>name, :id =>nil})
+    project.save()
+    @projects = Project.all()
+    erb(:projects)
+  else
+    "whoops, not a valid entry. Hit that back button & try again, please!" 
+  end
 end
 
 get('/projects/new') do
@@ -39,7 +43,6 @@ end
 patch('/projects/:id')do
   @project = Project.find(params[:id].to_i())
   @project.update(params[:name])
-  # look in edit_project.erb if it doesn't work right.
   @projects =Project.all
   erb(:projects)
 end 
@@ -59,8 +62,12 @@ end
 post('/projects/:id/volunteers')do
   @project = Project.find(params[:id].to_i())
   volunteer = Volunteer.new({:name => params[:volunteer_name], :project_id => @project.id, :id => nil})
-  volunteer.save()
-  erb(:project)
+  if volunteer.name.length() > 0
+    volunteer.save()
+    erb(:project)
+  else
+    "invalid entry, hit that back button and try again"
+  end
 end
 
 get ('/projects/:id/volunteers/:volunteer_id')do

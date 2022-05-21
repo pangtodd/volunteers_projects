@@ -91,4 +91,13 @@ describe 'Volunteer' do
       expect(Volunteer.all).to eq([volunteer2])
     end
   end
+  describe 'project' do
+    it("finds the project a volunteer belongs to")do
+      project= Project.new({:title=>"teaching robots biology", :id=>nil})
+      project.save()
+      volunteer= Volunteer.new({:name=>"Lazy Larry",:project_id=> project.id,:id=> nil})
+      volunteer.save()
+      expect(volunteer.project()).to eq(project)
+    end
+  end
 end

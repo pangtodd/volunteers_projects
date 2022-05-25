@@ -4,7 +4,7 @@ describe Project do
   describe '#title' do
     it 'returns the project title' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
-      expect(project.title).to eq 'Teaching Kids to Code'
+      expect project.title.to eq 'Teaching Kids to Code'
     end
   end
 
@@ -77,8 +77,8 @@ describe Project do
     it 'allows a user to update a project' do
       project = Project.new({:title => 'Teaching Kids to Code', :id => nil})
       project.save
-      project.update ('Teaching Ruby to Kids')
-      # project.update({:title => 'Teaching Ruby to Kids', :id => nil}) !!wrong argument for how I wrote this method!!
+      # project.update ('Teaching Ruby to Kids')
+      project.update({:title => 'Teaching Ruby to Kids', :id => nil})
       expect(project.title).to eq 'Teaching Ruby to Kids'
     end
   end

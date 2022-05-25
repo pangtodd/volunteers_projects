@@ -27,7 +27,7 @@ post('/projects') do
     @projects = Project.all()
     erb(:projects)
   else
-    "whoops, not a valid entry. Hit that back button & try again, please!" 
+    erb(:error) 
   end
 end
 
@@ -66,7 +66,7 @@ post('/projects/:id/volunteers')do
     volunteer.save()
     erb(:project)
   else
-    "invalid entry, hit that back button and try again"
+    erb(:error)
   end
 end
 
